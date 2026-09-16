@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure QR Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Secure QR Message System</h1>
+        <p>Choose an action below to securely process messages.</p>
+        
+        <div class="actions">
+            <a href="/send" class="btn">✉️ Encrypt & Send Message</a>
+            <a href="/receive" class="btn btn-secondary">🔍 Scan & Read Messages</a>
+        </div>
+    </div>
+</body>
+</html>

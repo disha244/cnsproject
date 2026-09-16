@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypt Message</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>✉️ Create Secure Message</h1>
+        <form action="/send" method="POST">
+            <label for="secret_message">Enter your secret message text:</label>
+            <textarea id="secret_message" name="secret_message" rows="5" required placeholder="Type something confidential here..."></textarea>
+            
+            <button type="submit" class="btn">Lock & Save Payload</button>
+        </form>
+        <br>
+        <a href="/" class="back-link">← Return to Homepage</a>
+    </div>
+</body>
+</html>

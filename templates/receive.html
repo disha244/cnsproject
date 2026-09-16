@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile QR Scanner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Mobile QR Scanner Terminal</h1>
+        
+        <!-- Native Camera Activation Interface -->
+        <div style="margin: 20px 0;">
+            <button onclick="startMobileCamera()" class="btn btn-secondary">📷 Start Camera Stream</button>
+        </div>
+        
+        <video id="webcam-preview" style="width: 100%; max-width: 360px; border-radius: 8px; display: none; background: #000; margin: 0 auto;" autoplay playsinline></video>
+
+        <div id="result-box" style="margin-top: 20px; padding: 12px; background: #e9ecef; border-radius: 6px; display: none;">
+            <strong>Decoded Data:</strong> 
+            <p style="color: green; font-weight: bold; margin: 5px 0 0 0;">Simulated Secure QR Data Match Success!</p>
+        </div>
+
+        <br><br>
+        <a href="/" class="back-link">← Return to Homepage</a>
+    </div>
+
+    <script>
+        function startMobileCamera() {
+            const video = document.getElementById('webcam-preview');
+            const resultBox = document.getElementById('result-box');
+            
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+                .then(stream => {
+                    video.srcObject = stream;
+                    video.style.display = 'block';
+                    resultBox.style.display = 'block';
+                })
+                .catch(err => {
+                    alert("Camera access error: " + err);
+                });
+        }
+    </script>
+</body>
+</html>
